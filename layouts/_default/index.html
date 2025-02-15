@@ -1,0 +1,43 @@
+{{ define "main" }}
+<script>
+    function fitTextToContainer() {
+        const container = document.querySelector('.alsohome');
+        const text = document.querySelector('.text');
+        let fontSize = 10;
+        text.style.fontSize = `${fontSize}px`;
+        const containerHeight = container.offsetHeight;
+
+        while (true) {
+            text.style.fontSize = `${fontSize}px`;
+
+            const textHeight = text.scrollHeight;
+
+            if (textHeight > (containerHeight)) {
+                fontSize--;
+                text.style.fontSize = `${fontSize-5}px`;
+                break;
+            }
+
+            fontSize++;
+        }
+    }
+
+    window.addEventListener('load', fitTextToContainer);
+    window.addEventListener('resize', fitTextToContainer);
+</script>
+
+<div class="home">
+    <div class="alsohome text leading-loose">
+    <div class="place-content-between mb-5 flex-grow flex items-center align-middle distibute-around">
+        <p>Hi,</p>
+        <button class="text-lg my-auto btn secondary flat m-2 "><i class="iconoir-chat-bubble-translate pe-1"></i> Váltás magyarra </button>
+    </div>
+        {{ .Content }}
+    </p>
+    
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+
+
+</div>
+{{ end }}

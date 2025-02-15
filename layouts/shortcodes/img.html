@@ -1,0 +1,8 @@
+{{ $img := resources.Get (printf "images/%s" (.Get 0)) }}
+{{ if $img }}
+<a href="{{ $img.RelPermalink }}">
+  <img class="ms-2 me-2 mt-4 round-base" src="{{ $img.RelPermalink }}">
+</a>
+{{ else }}
+  {{ errorf "Image %q not found in /assets/images/" (.Get 0) }}
+{{ end }}

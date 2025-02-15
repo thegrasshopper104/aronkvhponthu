@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} - {{ .Site.Title}}</title>
+    <meta name="description" content="{{ .Description }}">
+
+    {{/* styles */}}
+    {{ $options := dict "inlineImports" true }}
+    {{ $styles := resources.Get "css/style.css" }}
+    <link href="{{ $styles.RelPermalink | relURL }}" rel="stylesheet" />
+    
+    {{/*  kulso eroforrasok  */}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&family=Varela&display=swap');
+        </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
+</head>
+  <body style="background:var(--dark)">
+    {{ block "main" . }}
+    {{ end }}
+  </body>
+
+</html>

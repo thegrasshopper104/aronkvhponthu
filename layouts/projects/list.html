@@ -1,0 +1,81 @@
+{{ define "main" }}
+<div class="p-5 text-white" >
+    <a class="btn btn secondary flat m-2" href="/">Back to the homepage</a>
+    <h1 class="mb-4 text-right">stuff I made</h1>
+    <div class="modal"><img src="images/othuszonot.png" alt=""></div>
+    <section id="filter" class="mb-5">
+        <p class="mb-2 font-light text-sm">Jump to category:</p>
+        <div class="round-base p-5 bg-zinc-900 flex gap-3"><button class="btn btn-tab">Test</button><button class="btn btn-tab">Test</button><button class="btn btn-tab">Test</button><button class="btn btn-tab">Test</button><button class="btn btn-tab">Test</button>
+        </div>
+    </section>
+    <section id="KDE" class="mt-12">
+        <div class="bg-zinc-800 hover:bg-zinc-700 p-5 round-base projects-card-kde lg:flex-row md:justify-between md:items-center md:p-8 hoverup">
+                <div><h2>KDE</h2><p class="max-w-80 mb-3 md:mb-0">...is a community making open-source software: apps that focus on users and not profits</p>   </div> 
+                    <button class="btn primary orange square flex items-center justify-center p-0 m-0">
+                     <i class="iconoir-arrow-right"></i>
+                    </button>       
+        </div>
+    </section>
+    <section id="archviz" class="mt-10">
+        <h2 class="mb-3">archviz</h2>
+        <div class="projects-grid">
+            {{/*  {{ range .Pages }}  */}}
+            {{ range .Site.RegularPages }}
+                {{ if .Dir "projects/archviz/" }}
+                <a href="{{ .RelPermalink }}" class="project-img-link">
+                <div class="project-card">
+                    {{ $image := resources.Get (.Params.headerimg | default "default.png") }}
+                    <img src="{{ $image.RelPermalink }}" alt="" class="project-img">
+                    {{ if .Title }}
+                    <div class="project-card-footer">
+                        <div class="project-card-title-container">
+                            <h4 class="align-middle"> {{ .Title }}</h4>
+                        </div> 
+                        <button class="btn btn-project-card h-100">View</button>
+                    </div>
+                    {{ end }}
+                </div>
+            </a>
+            {{ end }}
+        {{ end }}
+        </div>
+    </section>
+
+    <section id="web" class="mt-10">
+        <h2 class="mb-3">websites</h2>
+        <div class="projects-grid">
+            {{ range .Site.RegularPages }}
+                {{ if .Dir "projects/web/" }}
+                <a href="{{ .RelPermalink }}" class="project-img-link">
+                <div class="project-card">
+                    {{ $image := resources.Get (.Params.headerimg | default "default.png") }}
+                    <img src="{{ $image.RelPermalink }}" alt="" class="project-img">
+                    {{ if .Title }}
+                    <div class="project-card-footer">
+                        <div class="project-card-title-container">
+                            <h4 class="align-middle"> {{ .Title }}</h4>
+                        </div> 
+                        <a class="btn btn-project-card h-100 align-center"
+                        href="{{ if .Params.liveurl }}
+                                    {{ .Params.liveurl }}
+                                {{ else }}
+                                    {{ .RelPermalink }}
+                                {{ end }}">
+
+                                {{ if .Params.btntext }}
+                                    {{ .Params.btntext }}
+                                {{ else }}
+                                    View
+                                {{ end }}
+                        </a>
+                    </div>
+                    {{ end }}
+                </div>
+            </a>
+            {{ end }}
+        {{ end }}
+        </div>
+    </section>
+
+</div>
+{{ end }}

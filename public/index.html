@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta name="generator" content="Hugo 0.126.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - aronkvh pont hu</title>
+    <meta name="description" content="">
+
+    
+    
+    
+    <link href="/css/style.css" rel="stylesheet" />
+    
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&family=Varela&display=swap');
+        </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
+</head>
+  <body style="background:var(--dark)">
+    
+<script>
+    function fitTextToContainer() {
+        const container = document.querySelector('.alsohome');
+        const text = document.querySelector('.text');
+        let fontSize = 10;
+        text.style.fontSize = `${fontSize}px`;
+        const containerHeight = container.offsetHeight;
+
+        while (true) {
+            text.style.fontSize = `${fontSize}px`;
+
+            const textHeight = text.scrollHeight;
+
+            if (textHeight > (containerHeight)) {
+                fontSize--;
+                text.style.fontSize = `${fontSize-5}px`;
+                break;
+            }
+
+            fontSize++;
+        }
+    }
+
+    window.addEventListener('load', fitTextToContainer);
+    window.addEventListener('resize', fitTextToContainer);
+</script>
+
+<div class="home">
+    <div class="alsohome text leading-loose">
+    <div class="place-content-between mb-5 flex-grow flex items-center align-middle distibute-around">
+        <p>Hi,</p>
+        <button class="text-lg my-auto btn secondary flat m-2 "><i class="iconoir-chat-bubble-translate pe-1"></i> Váltás magyarra </button>
+    </div>
+        <p>I&rsquo;m Áron.Currently, I&rsquo;m studying operational computer science at Óbuda
+University in Budapest. <a class="btn primary orange square items-center justify-center p-0 aspect-square" href="projects">
+    <i class="iconoir-arrow-right p-0 m-0"></i> 
+</a>
+<a href="projects" class="btn primary p-0 orange"> Here </a> you can
+find some of my projects. You can also send me an {{}} email {{}} Matrix or
+Instagram message. Or download my CV. Sometimes I review about products I use,
+you can read them here. If you feel like it, leave a comment about this site.</p>
+
+    </p>
+    
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+
+
+</div>
+
+  </body>
+
+</html>
